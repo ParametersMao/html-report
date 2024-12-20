@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #4a4a4a;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .post {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 1rem;
+        }
+
+        .post h2 {
+            color: #4a4a4a;
+        }
+
+        footer {
+            background-color: #4a4a4a;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #about {
+            background-color: #f4f4f4;
+            padding: 2rem;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>我的个人博客</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">首页</a></li>
+                <li><a href="#" onclick="showSection('blog')">博客</a></li>
+                <li><a href="#" onclick="showSection('about')">关于我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="content">
+        <!-- 内容将通过JavaScript动态加载 -->
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mr.Bean的个人博客. 保留所有权利。</p>
+    </footer>
+
+    <script>
+        const content = {
+            home: `
+                <h2>欢迎来到我的博客</h2>
+                <p>这里是我分享想法和经验的地方。浏览我的文章，了解更多关于技术、生活和其他有趣话题的内容。</p>
+            `,
+            blog: `
+                <h2>博客文章</h2>
+                <div class="post">
+                    <h3>我的第一篇博客文章</h3>
+                    <p>发布日期: 2023年6月1日</p>
+                    <p>这是我的第一篇博客文章。在这里，我会讨论我最近学到的一些编程技巧和心得。</p>
+                    <a href="#" onclick="showPost('post1')">阅读更多</a>
+                </div>
+                <div class="post">
+                    <h3>学习Web开发的心得</h3>
+                    <p>发布日期: 2023年6月15日</p>
+                    <p>最近我一直在学习Web开发，这里是我的一些心得体会和推荐的学习资源。</p>
+                    <a href="#" onclick="showPost('post2')">阅读更多</a>
+                </div>
+            `,
+            about: `
+                <div id="about">
+                    <h2>关于我</h2>
+                    <p>你好！我是[你的名字]，一个热爱技术和写作的开发者。通过这个博客，我希望能与大家分享我的学习心得和生活感悟。</p>
+                    <p>我的专业领域包括：</p>
+                    <ul>
+                        <li>Web开发</li>
+                        <li>人工智能</li>
+                        <li>数据科学</li>
+                    </ul>
+                    <p>如果你有任何问题或建议，欢迎联系我：example@email.com</p>
+                </div>
+            `,
+            post1: `
+                <h2>我的第一篇博客文章</h2>
+                <p>发布日期: 2023年6月1日</p>
+                <p>大家好，这是我的第一篇博客文章。作为一个刚开始学习编程的新手，我想分享一些我最近学到的编程技巧和心得。</p>
+                <h3>1. 保持学习的热情</h3>
+                <p>编程是一个不断学习的过程。每天我都会发现新的知识点和技术。保持对学习的热情是很重要的。</p>
+                <h3>2. 实践是最好的学习方法</h3>
+                <p>光看书是不够的，要多动手实践。我发现，通过做项目，我学到的知识更加牢固。</p>
+                <h3>3. 加入编程社区</h3>
+                <p>加入在线编程社区是一个很好的学习方式。你可以在那里提问、分享经验，还能认识志同道合的朋友。</p>
+                <p>希望这些经验对你也有帮助。我会继续更新我的学习心得，欢迎常来看看！</p>
+                <a href="#" onclick="showSection('blog')">返回博客列表</a>
+            `,
+            post2: `
+                <h2>学习Web开发的心得</h2>
+                <p>发布日期: 2023年6月15日</p>
+                <p>最近我一直在专注学习Web开发，这里我想分享一些我的心得体会和推荐的学习资源。</p>
+                <h3>学习路线</h3>
+                <p>我的学习路线是：HTML → CSS → JavaScript → React。这个顺序让我能够循序渐进地掌握Web开发的各个方面。</p>
+                <h3>推荐资源</h3>
+                <ul>
+                    <li>MDN Web Docs：最全面的Web技术文档</li>
+                    <li>freeCodeCamp：提供免费的编程课程和项目</li>
+                    <li>Codecademy：交互式学习平台，适合初学者</li>
+                </ul>
+                <h3>实战项目</h3>
+                <p>我发现，做项目是提升技能最快的方法。我从简单的静态网页开始，逐步过渡到更复杂的动态网站。每个项目都让我学到了新东西。</p>
+                <h3>持续学习</h3>
+                <p>Web技术发展很快，持续学习非常重要。我每天都会花时间阅读技术博客，了解行业最新动态。</p>
+                <p>希望这些经验对你的Web开发学习之旅有所帮助。如果你有任何问题，欢迎在评论区留言！</p>
+                <a href="#" onclick="showSection('blog')">返回博客列表</a>
+            `
+        };
+
+        function showSection(section) {
+            document.getElementById('content').innerHTML = content[section];
+        }
+
+        function showPost(postId) {
+            document.getElementById('content').innerHTML = content[postId];
+        }
+
+        // 初始化显示首页
+        showSection('home');
+    </script>
+</body>
+
+</html>
